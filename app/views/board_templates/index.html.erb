@@ -1,1 +1,9 @@
 <h1>Hello World</h1>
+
+<% list_of_boards = Board.all %>
+
+<% list_of_boards.each do |board| %>
+<p>
+  <%= board.name %>
+</p>
+<% end %>
