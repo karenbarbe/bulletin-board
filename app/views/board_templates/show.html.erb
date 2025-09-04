@@ -23,8 +23,8 @@
   <tr>
     <td><%= listing.title %></td>
     <td><%= listing.body %></td>
-    <td><%= listing.expires_on %></td>
-    <td><%= listing.created_at %></td>
+    <td><%= listing.expires_on.strftime("%b %e, %Y") %></td>
+    <td><%= listing.created_at.strftime("%b %e, %Y") %></td>
   </tr>
 <% end %>
 
