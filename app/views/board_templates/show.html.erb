@@ -1,0 +1,4 @@
+<% the_id = params.fetch("path_id") %>
+<% the_board = Board.where({ :id => the_id }).first %>
+
+<h1><%= the_board.name %></h1>
