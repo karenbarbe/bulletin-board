@@ -12,33 +12,49 @@
 <header>
   Active listings
 </header>
-  <table>
-    <thead>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Expires on</th>
-      <th>Posted on</th>
-    </thead>
-<% active_listings.each do |listing| %>
-  <tr>
-    <td><%= listing.title %></td>
-    <td><%= listing.body %></td>
-    <td><%= listing.expires_on.strftime("%b %e, %Y") %></td>
-    <td><%= listing.created_at.strftime("%b %e, %Y") %></td>
-  </tr>
-<% end %>
-
-  </table>
+  <div class="overflow-auto">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Expires on</th>
+        <th>Posted on</th>
+      </thead>
+    <% active_listings.each do |listing| %>
+    <tr>
+      <td><%= listing.title %></td>
+      <td><%= listing.body %></td>
+      <td><%= listing.expires_on.strftime("%b %e, %Y") %></td>
+      <td><%= listing.created_at.strftime("%b %e, %Y") %></td>
+    </tr>
+    <% end %>
+    </table>
+  </div>
 </article>
 
 
 
-<h2>Expired listings</h2>
 
-<ul>
-  <% expired_listings.each do |listing| %>
-    <li>
-      <%= listing.title %> (<%= listing.expires_on %>)
-    </li>
-  <% end %>
-</ul>
+<article>
+  <header>
+    Expired listings
+  </header>
+  <div class="overflow-auto">
+    <table>
+      <thead>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Expired on</th>
+        <th>Posted on</th>
+      </thead>
+      <% expired_listings.each do |listing| %>
+        <tr>
+          <td><%= listing.title %></td>
+          <td><%= listing.body %></td>
+          <td><%= listing.expires_on.strftime("%b %e, %Y") %></td>
+          <td><%= listing.created_at.strftime("%b %e, %Y") %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</article>
