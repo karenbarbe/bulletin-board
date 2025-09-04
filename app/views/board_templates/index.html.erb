@@ -1,9 +1,19 @@
-<h1>Hello World</h1>
+<h1>Home</h1>
 
 <% list_of_boards = Board.all %>
 
-<% list_of_boards.each do |board| %>
-<p>
-  <%= board.name %>
-</p>
-<% end %>
+<article>
+  <header>
+    All boards
+  </header>
+  <ul>
+    <% list_of_boards.each do |board| %>
+    <li>
+      <a href="/boards/<%= board.id %>">
+
+      <%= board.name %>
+      </a>
+    </li>
+    <% end %>
+  </ul>
+</article>
