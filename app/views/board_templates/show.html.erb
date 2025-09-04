@@ -2,3 +2,27 @@
 <% the_board = Board.where({ :id => the_id }).first %>
 
 <h1><%= the_board.name %></h1>
+
+<% all_listings = Listing.where({ :board_id => the_id }) %>
+<% active_listings = all_listings.where({ :expires_on => (Date.today...) }) %>
+<% expired_listings = all_listings.where({ :expires_on => (...Date.today) }) %>
+
+<h2>Active listings</h2>
+
+<ul>
+  <% active_listings.each do |listing| %>
+  <li>
+    <%= listing.title %> (<%= listing.expires_on %>)
+  </li>
+  <% end %>
+</ul>
+
+<h2>Expired listings</h2>
+
+<ul>
+  <% expired_listings.each do |listing| %>
+  <li>
+    <%= listing.title %> (<%= listing.expires_on %>)
+  </li>
+  <% end %>
+</ul>
