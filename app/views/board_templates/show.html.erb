@@ -7,22 +7,38 @@
 <% active_listings = all_listings.where({ :expires_on => (Date.today...) }) %>
 <% expired_listings = all_listings.where({ :expires_on => (...Date.today) }) %>
 
-<h2>Active listings</h2>
 
-<ul>
-  <% active_listings.each do |listing| %>
-  <li>
-    <%= listing.title %> (<%= listing.expires_on %>)
-  </li>
-  <% end %>
-</ul>
+<article>
+<header>
+  Active listings
+</header>
+  <table>
+    <thead>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Expires on</th>
+      <th>Posted on</th>
+    </thead>
+<% active_listings.each do |listing| %>
+  <tr>
+    <td><%= listing.title %></td>
+    <td><%= listing.body %></td>
+    <td><%= listing.expires_on %></td>
+    <td><%= listing.created_at %></td>
+  </tr>
+<% end %>
+
+  </table>
+</article>
+
+
 
 <h2>Expired listings</h2>
 
 <ul>
   <% expired_listings.each do |listing| %>
-  <li>
-    <%= listing.title %> (<%= listing.expires_on %>)
-  </li>
+    <li>
+      <%= listing.title %> (<%= listing.expires_on %>)
+    </li>
   <% end %>
 </ul>
