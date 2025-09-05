@@ -41,7 +41,7 @@
   <header>
     Add new listing
   </header>
-  <form action="insert_listing" method="post">
+  <form action="/insert_listing" method="post">
     <label for="title_field">Title</label>
     <input id="title_field" type="text" name="title_param">
 
@@ -50,6 +50,9 @@
 
     <label for="expires_on_field">Expires on</label>
     <input id="expires_on_field" type="date" name="expires_on_param">
+
+    <input id="board_id_field" type="hidden" name="board_id_param" value="<%= the_id %>">
+
     <button>Create listing</button>
   </form>
 </article>
