@@ -7,6 +7,6 @@ class ListingsController < ApplicationController
     new_listing.board_id = params.fetch("board_id_param")
     new_listing.save
 
-    redirect_to("/boards/#{new_listing.board_id}", { :notice => "Listing created successfully!" })
+    redirect_to("/boards/#{new_listing.board_id}", { :notice => "Listing created successfully." })
   end
 end
