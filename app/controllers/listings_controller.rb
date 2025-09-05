@@ -7,6 +7,10 @@ class ListingsController < ApplicationController
     new_listing.board_id = params.fetch("board_id_param")
     new_listing.save
 
-    redirect_to("/boards/#{new_listing.board_id}", { :notice => "Listing created successfully." })
+    if new_listing.id != nil
+      redirect_to("/boards/#{new_listing.board_id}", { :notice => "Listing created successfully." })
+    else
+      redirect_to("/boards/#{new_listing.board_id}", { :alert => new_listing.errors.full_messages.to_sentence })
+    end
   end
 end
